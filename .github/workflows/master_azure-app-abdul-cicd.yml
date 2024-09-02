@@ -18,13 +18,13 @@ jobs:
         with:
           dotnet-version: '6.0.x'
 
-      # Build step with explicit solution file path
+      # Build step with explicit project file path
       - name: Build with dotnet
-        run: dotnet build abdul-azure-app/abdul-azure-app.sln --configuration Release
+        run: dotnet build abdul-azure-app/abdul-azure-app/abdul-azure-app.csproj --configuration Release
 
-      # Publish step with explicit solution file path and output directory
+      # Publish step with explicit project file path and output directory
       - name: dotnet publish
-        run: dotnet publish abdul-azure-app/abdul-azure-app.sln -c Release -o ${{ runner.temp }}/myapp
+        run: dotnet publish abdul-azure-app/abdul-azure-app/abdul-azure-app.csproj -c Release -o ${{ runner.temp }}/myapp
 
       # Upload artifact for deployment job
       - name: Upload artifact for deployment job
